@@ -1,6 +1,7 @@
 import 'package:facebook_clone/config/palette.dart';
 import 'package:facebook_clone/screens/base_screen.dart';
 import 'package:facebook_clone/screens/home/home_mobile.dart';
+import 'package:facebook_clone/screens/splash/splash.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           primarySwatch: Colors.blue,
           scaffoldBackgroundColor: Palette.scaffold),
-      home: BaseScreen(),
+      home: SplashScreen(),
     );
   }
 }
