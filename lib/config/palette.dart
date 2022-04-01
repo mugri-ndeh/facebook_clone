@@ -10,10 +10,20 @@ class Palette {
   );
 
   static const Color online = Color(0xFF4BCB1F);
+  static const blueText = Color(0XFF384CFF);
 
   static const LinearGradient storyGradient = LinearGradient(
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
     colors: [Colors.transparent, Colors.black26],
+  );
+
+  static const LinearGradient buttonGradient = LinearGradient(
+    begin: Alignment.centerLeft,
+    end: Alignment.centerRight,
+    colors: [
+      Color(0xFF384CFF),
+      Color(0XFF059DFF),
+    ],
   );
 }
