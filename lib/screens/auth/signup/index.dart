@@ -26,7 +26,8 @@ class SignUpIndex extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            SizedBox(child: SvgPicture.asset('assets/svg/Illustration.svg'))
+            SizedBox(
+                height: 100, child: SvgPicture.asset('assets/svg/img_1.svg'))
           ],
         ),
       ),
