@@ -86,6 +86,7 @@ class AuthBase extends StatelessWidget {
           ),
         ),
         CustomButton(
+            padding: 10,
             text: 'Create New Facebook Account',
             onPressed: () {
               Navigator.push(context,
