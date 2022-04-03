@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 push(BuildContext context, Widget destination) {
   Navigator.of(context)
-      .push(MaterialPageRoute(builder: (context) => destination));
+      .push(CupertinoPageRoute(builder: (context) => destination));
 }
 
 pudsReplacement(BuildContext context, Widget destination) {
   Navigator.of(context)
-      .pushReplacement(MaterialPageRoute(builder: (context) => destination));
+      .pushReplacement(CupertinoPageRoute(builder: (context) => destination));
 }
