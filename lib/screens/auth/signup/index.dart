@@ -1,4 +1,9 @@
+import 'package:facebook_clone/config/navigation.dart';
+import 'package:facebook_clone/config/palette.dart';
+import 'package:facebook_clone/screens/auth/constants.dart';
 import 'package:facebook_clone/screens/auth/index.dart';
+import 'package:facebook_clone/screens/auth/signup/name.dart';
+import 'package:facebook_clone/screens/auth/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -8,26 +13,51 @@ class SignUpIndex extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Create account',
-          style: TextStyle(
-            color: Colors.black,
-          ),
-        ),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          onPressed: () => Navigator.of(context).pop(),
-          icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
-        ),
-      ),
+      appBar: getAppbar(context),
       body: Center(
         child: Column(
           children: [
-            SizedBox(
-                height: 100, child: SvgPicture.asset('assets/svg/img_1.svg'))
+            SizedBox(child: SvgPicture.asset('assets/svg/img_1.svg')),
+            const SizedBox(height: 50),
+            Text(
+              'Join Facebook',
+              style: boldStyle,
+            ),
+            const SizedBox(height: 10),
+            Text(
+              "we'll help you",
+              style: lightStyle,
+            ),
+            Text("create your accont in a few easy steps", style: lightStyle),
+            const SizedBox(height: 50),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: CustomButton(
+                  padding: size.width,
+                  text: 'Next',
+                  onPressed: () {
+                    push(context, NameEntry());
+                  }),
+            ),
+            const SizedBox(height: 50),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: GestureDetector(
+                    onTap: () {},
+                    child: const Text('Already have an account?',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                            color: Palette.facebookBlue)),
+                  ),
+                ),
+              ),
+            )
           ],
         ),
       ),
