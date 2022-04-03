@@ -1,12 +1,10 @@
 import 'package:facebook_clone/config/navigation.dart';
 import 'package:facebook_clone/config/palette.dart';
 import 'package:facebook_clone/screens/auth/constants.dart';
-import 'package:facebook_clone/screens/auth/index.dart';
 import 'package:facebook_clone/screens/auth/signup/name.dart';
 import 'package:facebook_clone/screens/auth/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class SignUpIndex extends StatelessWidget {
   const SignUpIndex({Key? key}) : super(key: key);
