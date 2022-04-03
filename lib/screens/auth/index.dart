@@ -12,6 +12,8 @@ class AuthBase extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     return Scaffold(
         body: Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -85,13 +87,16 @@ class AuthBase extends StatelessWidget {
             ],
           ),
         ),
-        CustomButton(
-            padding: 10,
-            text: 'Create New Facebook Account',
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: ((context) => BaseScreen())));
-            }),
+        Padding(
+          padding: const EdgeInsets.all(20),
+          child: CustomButton(
+              padding: size.width,
+              text: 'Create New Facebook Account',
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: ((context) => BaseScreen())));
+              }),
+        ),
       ],
     ));
   }
