@@ -1,6 +1,4 @@
 import 'package:facebook_clone/config/palette.dart';
-import 'package:facebook_clone/screens/base_screen.dart';
-import 'package:facebook_clone/screens/home/home_mobile.dart';
 import 'package:facebook_clone/screens/splash/splash.dart';
 import 'package:flutter/material.dart';
 
