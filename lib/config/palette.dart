@@ -26,4 +26,6 @@ class Palette {
       Color(0XFF059DFF),
     ],
   );
+
+  static const Color black = Color.fromARGB(255, 13, 14, 32);
 }
