@@ -36,16 +36,16 @@ class CustomButton extends StatelessWidget {
   }
 }
 
-AppBar getAppbar(BuildContext context) {
+AppBar getAppbar(BuildContext context, {String? title}) {
   return AppBar(
-    title: const Text(
-      'Create account',
-      style: TextStyle(
+    title: Text(
+      title ?? 'Create account',
+      style: const TextStyle(
         color: Colors.black,
       ),
     ),
-    backgroundColor: Colors.transparent,
-    elevation: 0,
+    backgroundColor: Palette.scaffold,
+    elevation: 1,
     leading: IconButton(
       onPressed: () => Navigator.of(context).pop(),
       icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
