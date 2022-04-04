@@ -10,6 +10,7 @@ class GenderScreen extends StatefulWidget {
 }
 
 class _GenderStateScreen extends State<GenderScreen> {
+  bool val = false;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -27,8 +28,32 @@ class _GenderStateScreen extends State<GenderScreen> {
             "You can change who can see your gender later",
             style: lightStyle,
           ),
+          RadioListTile(
+            value: val,
+            groupValue: val,
+            onChanged: (val) {
+              setState(() {
+                val = val!;
+              });
+            },
+            title: const Text("Male"),
+          ),
+          RadioListTile(
+            value: val,
+            groupValue: val,
+            onChanged: (val) {
+              setState(() {
+                val = val!;
+              });
+            },
+            title: const Text("Female"),
+          ),
           const SizedBox(height: 42),
-          CustomButton(text: 'Next', onPressed: () {}, padding: size.width)
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: CustomButton(
+                text: 'Next', onPressed: () {}, padding: size.width),
+          )
         ],
       ),
     );
