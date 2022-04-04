@@ -1,5 +1,7 @@
+import 'package:facebook_clone/config/navigation.dart';
 import 'package:facebook_clone/config/palette.dart';
 import 'package:facebook_clone/screens/auth/constants.dart';
+import 'package:facebook_clone/screens/auth/signup/birthday.dart';
 import 'package:facebook_clone/screens/auth/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +13,8 @@ class NameEntry extends StatefulWidget {
 }
 
 class NamesStatEntry extends State<NameEntry> {
+  final _firstNameController = TextEditingController();
+  final _lastNameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -32,14 +36,24 @@ class NamesStatEntry extends State<NameEntry> {
             ),
             const SizedBox(height: 42),
             TextFormField(
+              onChanged: (val) {
+                setState(() {});
+              },
+              controller: _firstNameController,
               decoration: InputDecoration(
-                suffixIcon: IconButton(
-                  icon: const Icon(
-                    Icons.close,
-                    size: 18,
-                  ),
-                  onPressed: () {},
-                ),
+                suffixIcon: _firstNameController.text.isEmpty
+                    ? null
+                    : IconButton(
+                        icon: const Icon(
+                          Icons.close,
+                          size: 18,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            _firstNameController.clear();
+                          });
+                        },
+                      ),
                 focusedBorder: const OutlineInputBorder(
                   borderSide: BorderSide(color: Palette.black, width: 1.5),
                 ),
@@ -56,14 +70,24 @@ class NamesStatEntry extends State<NameEntry> {
             ),
             const SizedBox(height: 16),
             TextFormField(
+              onChanged: (val) {
+                setState(() {});
+              },
+              controller: _lastNameController,
               decoration: InputDecoration(
-                suffixIcon: IconButton(
-                  icon: const Icon(
-                    Icons.close,
-                    size: 18,
-                  ),
-                  onPressed: () {},
-                ),
+                suffixIcon: _lastNameController.text.isEmpty
+                    ? null
+                    : IconButton(
+                        icon: const Icon(
+                          Icons.close,
+                          size: 18,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            _lastNameController.clear();
+                          });
+                        },
+                      ),
                 focusedBorder: const OutlineInputBorder(
                   borderSide: BorderSide(color: Palette.black, width: 1.5),
                 ),
@@ -79,7 +103,12 @@ class NamesStatEntry extends State<NameEntry> {
               // maxLength: 6,
             ),
             const SizedBox(height: 30),
-            CustomButton(text: 'Next', onPressed: () {}, padding: size.width)
+            CustomButton(
+                text: 'Next',
+                onPressed: () {
+                  push(context, BirthdayScreen());
+                },
+                padding: size.width)
           ],
         ),
       ),
