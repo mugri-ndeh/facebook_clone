@@ -14,6 +14,24 @@ class BirthdayScreen extends StatefulWidget {
 }
 
 class _BirthdayScreenState extends State<BirthdayScreen> {
+  var _controller1;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _controller1 = TextEditingController(text: DateTime.now().toString());
+    getValue();
+  }
+
+  Future<void> getValue() async {
+    await Future.delayed(const Duration(seconds: 0), () {
+      setState(() {
+        //_initialValue = '2000-10-22 14:30';
+        _controller1.text = '2000-09-20 14:30';
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -41,9 +59,9 @@ class _BirthdayScreenState extends State<BirthdayScreen> {
               ),
               const SizedBox(height: 42),
               DateTimePicker(
-                type: DateTimePickerType.dateTimeSeparate,
+                type: DateTimePickerType.date,
                 dateMask: 'd MMM, yyyy',
-                //controller: _controller1,
+                controller: _controller1,
                 //initialValue: _initialValue,
                 firstDate: DateTime(2000),
                 lastDate: DateTime(2100),
@@ -65,24 +83,25 @@ class _BirthdayScreenState extends State<BirthdayScreen> {
                 // },
                 // onSaved: (val) => setState(() => _valueSaved1 = val ?? ''),
               ),
+              const SizedBox(height: 30),
               CustomButton(
                   text: 'Next',
                   onPressed: () {
-                    //push(context, GenderScreen());
-                    DatePicker.showDatePicker(context,
-                        theme: const DatePickerTheme(
-                          containerHeight: 210.0,
-                        ),
-                        showTitleActions: true,
-                        minTime:
-                            DateTime.now().subtract(const Duration(days: 360)),
-                        maxTime: DateTime.now(), onConfirm: (date) async {
-                      // ignore: avoid_print
-                      print('confirm $date');
-                    },
-                        currentTime:
-                            DateTime.now().subtract(const Duration(days: 20)),
-                        locale: LocaleType.en);
+                    push(context, GenderScreen());
+                    // DatePicker.showDatePicker(context,
+                    //     theme: const DatePickerTheme(
+                    //       containerHeight: 210.0,
+                    //     ),
+                    //     showTitleActions: true,
+                    //     minTime:
+                    //         DateTime.now().subtract(const Duration(days: 360)),
+                    //     maxTime: DateTime.now(), onConfirm: (date) async {
+                    //   // ignore: avoid_print
+                    //   print('confirm $date');
+                    // },
+                    //     currentTime:
+                    //         DateTime.now().subtract(const Duration(days: 20)),
+                    //     locale: LocaleType.en);
                   },
                   padding: size.width)
             ],
